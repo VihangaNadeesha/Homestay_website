@@ -1,0 +1,10 @@
+"use client";
+import { useState } from "react";
+import { fallbackRooms } from "../lib/content";
+
+export function InquiryForm({ room }: { room?: string }) {
+ const [status,setStatus]=useState<string>();
+ async function submit(formData: FormData) { setStatus("Sending your inquiry…"); const response=await fetch("/api/inquiries",{method:"POST",body:formData}); setStatus(response.ok ? "Thank you — your inquiry has been sent. The family will confirm availability directly." : "We could not send that inquiry. Please try WhatsApp or try again later."); }
+ return <form action={submit} className="grid gap-4 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-ink/10 sm:grid-cols-2"><input type="hidden" name="website" tabIndex={-1} autoComplete="off"/><Field label="Your name" name="name" required/><Field label="Email" name="email" type="email" required/><Field label="WhatsApp or phone" name="phone" required/><label className="grid gap-1 text-sm font-medium">Preferred room<select name="room" defaultValue={room} className="rounded-lg border border-ink/20 bg-white p-3"><option value="">Please choose</option>{fallbackRooms.map(r=><option key={r.slug} value={r.slug}>{r.name}</option>)}</select></label><Field label="Guests" name="guests" type="number" min="1" required/><Field label="Check-in" name="checkIn" type="date" required/><Field label="Check-out" name="checkOut" type="date" required/><label className="grid gap-1 text-sm font-medium sm:col-span-2">Message<textarea name="message" rows={4} maxLength={2000} className="rounded-lg border border-ink/20 p-3" placeholder="Tell us a little about your stay." /></label><button className="rounded-full bg-leaf px-5 py-3 font-bold text-white sm:col-span-2" type="submit">Send inquiry</button>{status&&<p className="sm:col-span-2 text-sm" role="status">{status}</p>}</form>;
+}
+function Field({label,...props}:React.InputHTMLAttributes<HTMLInputElement>&{label:string}) {return <label className="grid gap-1 text-sm font-medium">{label}<input {...props} className="rounded-lg border border-ink/20 p-3" /></label>}

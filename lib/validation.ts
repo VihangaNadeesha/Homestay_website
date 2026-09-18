@@ -1,0 +1,2 @@
+import { z } from "zod";
+export const inquirySchema=z.object({name:z.string().trim().min(2).max(100),email:z.string().trim().email().max(254),phone:z.string().trim().min(5).max(40),room:z.string().trim().max(80),guests:z.coerce.number().int().min(1).max(12),checkIn:z.string().date(),checkOut:z.string().date(),message:z.string().trim().max(2000).optional().default(""),website:z.string().max(0).optional()}).refine(v=>v.checkOut>v.checkIn,{message:"Check-out must be after check-in",path:["checkOut"]});

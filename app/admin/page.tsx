@@ -1,0 +1,2 @@
+import { redirect } from "next/navigation"; import { isAdmin } from "../../lib/supabase/server";
+export const dynamic="force-dynamic"; export default async function Admin(){if(!await isAdmin())redirect("/admin/login");return <section className="shell py-14"><p className="eyebrow">Admin</p><h1 className="display mt-3 text-5xl">Homestay management</h1><p className="mt-5 text-ink/75">Manage rooms, gallery images, inquiries, reviews, availability and settings from the secured dashboard.</p></section>}
