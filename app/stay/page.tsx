@@ -1,0 +1,3 @@
+import { fallbackRooms } from "../../lib/content"; import { RoomCard } from "../../components/room-card";
+export const metadata={title:"Stay & prices",description:"Private upper-floor accommodation and clear daily and monthly prices in Habaraduwa."};
+export default function Stay(){return <section className="shell py-14"><p className="eyebrow">Accommodation</p><h1 className="display mt-3 text-5xl">A simple, private place to stay.</h1><p className="mt-5 max-w-2xl leading-8 text-ink/75">Choose a room or the entire first floor. Ask the family about your dates before making travel plans.</p><div className="mt-10 grid gap-6 md:grid-cols-3">{fallbackRooms.map(room=><RoomCard key={room.slug} room={room}/>)}</div></section>}

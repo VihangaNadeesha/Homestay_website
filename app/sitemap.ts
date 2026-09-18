@@ -1,0 +1,2 @@
+import type { MetadataRoute } from "next"; import { fallbackRooms } from "../lib/content";
+export default function sitemap():MetadataRoute.Sitemap{const base=process.env.NEXT_PUBLIC_SITE_URL||"https://example.com";return ["","/stay","/experience","/gallery","/food","/location","/reviews","/faq","/contact","/privacy","/terms"].map(url=>({url:`${base}${url}`,lastModified:new Date()})).concat(fallbackRooms.map(r=>({url:`${base}/stay/${r.slug}`,lastModified:new Date()})));}
