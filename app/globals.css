@@ -5,13 +5,13 @@
 :root { color-scheme: light; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: #fbf8f1; color: #21352a; font-family: var(--font-sans), sans-serif; }
+body { margin: 0; background: #F9F6F0; color: #2A4628; font-family: var(--font-sans), sans-serif; }
 a { color: inherit; text-decoration: none; }
-:focus-visible { outline: 3px solid #a95e3e; outline-offset: 3px; }
+:focus-visible { outline: 3px solid #C87A53; outline-offset: 3px; }
 .shell { width: min(100% - 2rem, 72rem); margin-inline: auto; }
-.eyebrow { color: #a95e3e; font-size: .75rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.eyebrow { color: #C87A53; font-size: .75rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
 .display { font-family: var(--font-display), serif; letter-spacing: -.035em; }
-.photo-slot { background: linear-gradient(135deg, #c8d9bd, #66875f 48%, #e8dcc5); position: relative; overflow: hidden; }
+.photo-slot { background: linear-gradient(135deg, #DDE6D8, #779663 48%, #F9F6F0); position: relative; overflow: hidden; }
 .photo-slot::before { content: ""; position: absolute; inset: 11% 15% auto auto; width: 45%; aspect-ratio: 1; border: 1px solid rgb(255 255 255 / .55); border-radius: 999px; }
 .photo-slot::after { content: "Property photographs will appear here"; position: absolute; left: 1rem; bottom: 1rem; color: #fff; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
